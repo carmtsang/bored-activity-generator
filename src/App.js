@@ -2,6 +2,7 @@ import "./App.scss";
 import { fetchAPI } from "./api";
 import { useEffect, useState } from "react";
 import Button from "./components/Button";
+import Activity from "./components/Activity";
 
 function App() {
   const [activity, setActivity] = useState({});
@@ -18,13 +19,12 @@ function App() {
         <h1>Activity Generator</h1>
       </header>
 
-      <Button onClick={onClick}>Click Me</Button>
-
-      <ul>
-        <li>{activity.activity}</li>
-        <li>Activity Type: {activity.type}</li>
-        <li>{activity.participants}</li>
-      </ul>
+      <Button onClick={onClick}>Find Activity</Button>
+      <Activity
+        activity={activity.activity}
+        type={activity.type}
+        participants={activity.participants}
+      />
     </div>
   );
 }
