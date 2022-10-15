@@ -1,13 +1,13 @@
 import "./App.scss";
 import { fetchAPI } from "./api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Button from "./components/Button";
 
 function App() {
   const [activity, setActivity] = useState({});
   const onClick = () => {
-    const baseURL = `https://www.boredapi.com/api/`;
     const random = "activity/";
-    fetchAPI(baseURL, random)
+    fetchAPI(random)
       .then((res) => setActivity(res.data))
       .catch((err) => console.log(err));
   };
@@ -15,10 +15,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Random Header here</h1>
+        <h1>Activity Generator</h1>
       </header>
 
-      <button onClick={onClick}>Click Me</button>
+      <Button onClick={onClick}>Click Me</Button>
+
+      <ul>
+        <li>{activity.activity}</li>
+        <li>Activity Type: {activity.type}</li>
+        <li>{activity.participants}</li>
+      </ul>
     </div>
   );
 }

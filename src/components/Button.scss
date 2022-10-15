@@ -1,0 +1,30 @@
+@import "../styles/variables.scss";
+
+.button {
+  margin: 10px;
+  background-color: $primary;
+  color: $white;
+  border: none;
+  padding: 30px, 60px;
+  font-size: 1.5rem;
+  height: 3rem;
+  width: 9rem;
+  border-radius: 1.25rem;
+}
+
+.button:hover {
+  background-color: $hover;
+  color: $black;
+}
+
+.button--confirm {
+  background-color: $confirm;
+}
+
+.button--danger {
+  background-color: $danger;
+}
+
+.button--danger:hover {
+  background-color: #fad4d4;
+}

@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const fetchAPI = (baseURL, endURL) => {
+const baseURL = `https://www.boredapi.com/api/`;
+
+const fetchAPI = (endURL) => {
   return axios.get(`${baseURL}${endURL}`);
 };
 
