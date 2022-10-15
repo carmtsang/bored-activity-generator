@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { fetchAPI } from "./api";
+import { useState } from "react";
 
 function App() {
+  const [activity, setActivity] = useState({});
+  const onClick = () => {
+    const baseURL = `https://www.boredapi.com/api/`;
+    const random = "activity/";
+    fetchAPI(baseURL, random)
+      .then((res) => setActivity(res.data))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Random Header here</h1>
       </header>
+
+      <button onClick={onClick}>Click Me</button>
     </div>
   );
 }
